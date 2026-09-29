@@ -4,7 +4,7 @@
  * (Navbar, Footer, WhatsApp float button).
  */
 
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 // Layout
 import Navbar          from './components/layout/Navbar/Navbar';
@@ -54,6 +54,9 @@ function AppContent() {
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Route>
+
+          {/* Catch-all route to prevent broken/unmatched URLs from crashing or showing blank page */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
