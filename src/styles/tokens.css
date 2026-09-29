@@ -1,0 +1,145 @@
+/* =====================================================
+   DESIGN TOKENS — Angels & Fairies Daycare Center
+   Single source of truth for all design values
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ---- Primary Palette (Sage Green) ---- */
+  --clr-primary-50:  #F4F6F4;
+  --clr-primary-100: #E3E8E3;
+  --clr-primary-200: #C7D2C7;
+  --clr-primary-300: #A1B3A1;
+  --clr-primary-400: #7C917C;
+  --clr-primary-500: #5C725C;
+  --clr-primary-600: #465846;
+  --clr-primary-700: #384738;
+  --clr-primary-800: #2E3A2E;
+  --clr-primary-900: #263026;
+
+  /* ---- Secondary Palette (Warm Beige / Oat) ---- */
+  --clr-rose-50:  #FAF9F6;
+  --clr-rose-100: #F3EFE6;
+  --clr-rose-300: #E6DCBF;
+  --clr-rose-400: #D8C69B;
+  --clr-rose-500: #C7AE75;
+  --clr-rose-600: #B39556;
+
+  /* ---- Accent (Terracotta / Muted Rose) ---- */
+  --clr-mint-50:  #FDF8F6;
+  --clr-mint-100: #FAEBE6;
+  --clr-mint-300: #E9B8A7;
+  --clr-mint-400: #DF9B84;
+  --clr-mint-500: #D27A5D;
+  --clr-mint-600: #BA5E40;
+
+  /* ---- Warm (Mustard / Sand) ---- */
+  --clr-warm-50:    #FFFDF7;
+  --clr-warm-100:   #FFF8E6;
+  --clr-warm-300:   #FDE8A5;
+  --clr-warm-400:   #F9D365;
+  --clr-warm-orange: #E6A735;
+  --clr-warm-peach:  #F5E1C8;
+
+  /* ---- Sky Blue (Soft Grey Blue) ---- */
+  --clr-sky-100: #F0F4F8;
+  --clr-sky-200: #D9E2EC;
+  --clr-sky-400: #9FB3C8;
+  --clr-sky-500: #829AB1;
+
+  /* ---- Neutrals ---- */
+  --clr-bg:       #FAF9F6; /* Off-white/oat base */
+  --clr-bg-white: #FFFFFF;
+  --clr-bg-soft:  #F3EFE6;
+  --clr-border:         #E1DFD9;
+  --clr-border-soft:    rgba(92, 114, 92, 0.15);
+
+  /* ---- Text ---- */
+  --clr-text-heading: #263026;
+  --clr-text-body:    #4A4A4A;
+  --clr-text-muted:   #737373;
+  --clr-text-light:   #A3A3A3;
+  --clr-text-white:   #FFFFFF;
+
+  /* ---- Gradients ---- */
+  --grad-primary:   linear-gradient(135deg, #5C725C 0%, #465846 100%);
+  --grad-secondary: linear-gradient(135deg, #C7AE75 0%, #B39556 100%);
+  --grad-accent:    linear-gradient(135deg, #D27A5D 0%, #BA5E40 100%);
+  --grad-warm:      linear-gradient(135deg, #E6A735 0%, #C7AE75 100%);
+  --grad-soft:      linear-gradient(135deg, #F4F6F4 0%, #FAF9F6 50%, #F3EFE6 100%);
+  --grad-hero:      linear-gradient(135deg, #465846 0%, #2E3A2E 100%);
+  --grad-text:      linear-gradient(135deg, #384738, #5C725C);
+  --grad-text-warm: linear-gradient(135deg, #B39556, #8C723B);
+
+  /* ---- Shadows ---- */
+  --shadow-xs:    0 1px 2px rgba(38, 48, 38, 0.04);
+  --shadow-sm:    0 2px 6px rgba(38, 48, 38, 0.06);
+  --shadow-md:    0 4px 12px rgba(38, 48, 38, 0.08);
+  --shadow-lg:    0 8px 24px rgba(38, 48, 38, 0.1);
+  --shadow-xl:    0 16px 32px rgba(38, 48, 38, 0.12);
+  --shadow-2xl:   0 24px 48px rgba(38, 48, 38, 0.16);
+  --shadow-color: 0 8px 24px rgba(92, 114, 92, 0.2);
+  --shadow-pink:  0 8px 24px rgba(199, 174, 117, 0.2);
+  --shadow-mint:  0 8px 24px rgba(210, 122, 93, 0.2);
+  --shadow-warm:  0 8px 24px rgba(230, 167, 53, 0.2);
+
+  /* ---- Border Radius ---- */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-2xl:  40px;
+  --radius-full: 9999px;
+
+  /* ---- Typography ---- */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* ---- Font Sizes (Clamp for fluid type) ---- */
+  --fs-xs:   0.78rem;
+  --fs-sm:   0.88rem;
+  --fs-base: 1rem;
+  --fs-md:   1.1rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.5rem;
+  --fs-2xl:  2rem;
+  --fs-3xl:  clamp(1.9rem, 3.5vw, 2.8rem);
+  --fs-4xl:  clamp(2.5rem, 5vw, 4rem);
+  --fs-hero: clamp(2.8rem, 6vw, 5rem);
+
+  /* ---- Transitions ---- */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce:  cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition:      all 0.3s var(--ease);
+  --transition-fast: all 0.15s var(--ease);
+  --transition-slow: all 0.5s var(--ease);
+
+  /* ---- Spacing ---- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---- Layout ---- */
+  --section-py:   96px;
+  --section-px:   clamp(20px, 5vw, 80px);
+  --container-max: 1280px;
+
+  /* ---- Z-index ---- */
+  --z-base:    1;
+  --z-above:   10;
+  --z-navbar:  1000;
+  --z-overlay: 1500;
+  --z-modal:   2000;
+}
