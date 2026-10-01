@@ -12,7 +12,7 @@ import {
   FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube,
   FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock,
 } from 'react-icons/fa';
-import logoMain from '../../../assets/images/logo-main.png';
+import logoMain from '../../../assets/images/Untitled-01.png';
 import './Footer.css';
 
 const QUICK_LINKS = [
@@ -34,7 +34,7 @@ const PROGRAM_LINKS = [
 ];
 
 const SOCIALS = [
-  { href: 'https://facebook.com', icon: <FaFacebookF />, label: 'Facebook' },
+  { href: 'https://www.facebook.com/angelsandfairiesdcc', icon: <FaFacebookF />, label: 'Facebook' },
   { href: 'https://instagram.com', icon: <FaInstagram />, label: 'Instagram' },
   { href: 'https://wa.me/923001234567', icon: <FaWhatsapp />, label: 'WhatsApp' },
   { href: 'https://youtube.com', icon: <FaYoutube />, label: 'YouTube' },

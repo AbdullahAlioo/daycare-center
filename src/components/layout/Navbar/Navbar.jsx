@@ -10,7 +10,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FaPhone } from 'react-icons/fa';
-import logoMain from '../../../assets/images/logo-main.png';
+import logoMain from '../../../assets/images/Untitled-01.png';
 import './Navbar.css';
 
 const NAV_LINKS = [
