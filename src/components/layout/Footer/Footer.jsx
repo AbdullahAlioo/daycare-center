@@ -144,8 +144,8 @@ const Footer = () => {
                 <FaClock />
               </div>
               <div className="footer__contact-text">
-                <strong>Timings</strong>
-                Mon – Sat: 7:30 AM – 6:00 PM
+                <strong>Visiting hours</strong>
+                3:00 PM - 5:00 PM
               </div>
             </div>
           </div>

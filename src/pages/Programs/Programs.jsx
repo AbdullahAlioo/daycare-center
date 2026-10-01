@@ -66,7 +66,7 @@ const Programs = () => (
 
     <section className="programs-overview">
       <div className="container programs-overview__bar">
-        <div><FaClock /><span><strong>Monday - Saturday</strong>7:30 AM - 6:00 PM</span></div>
+        <div><FaClock /><span><strong>Visiting hours</strong>3:00 PM - 5:00 PM</span></div>
         <div><FaUsers /><span><strong>Small-group care</strong>More attention for every child</span></div>
         <Link to="/admissions" className="programs-link">Ask about availability <FaArrowRight /></Link>
       </div>

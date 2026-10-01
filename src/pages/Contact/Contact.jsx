@@ -89,8 +89,8 @@ const Contact = () => {
               <div>
                 <span><FaClock /></span>
                 <div>
-                  <strong>Opening hours</strong>
-                  <small>Monday - Saturday<br />7:30 AM - 6:00 PM</small>
+                  <strong>Visiting hours</strong>
+                  <small>3:00 PM - 5:00 PM</small>
                 </div>
               </div>
             </div>

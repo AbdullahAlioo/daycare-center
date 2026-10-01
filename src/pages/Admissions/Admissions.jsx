@@ -90,7 +90,7 @@ const Admissions = () => {
             <p>We welcome children from infancy through early learning years. Availability can vary by age group, so the best first step is to speak with our team.</p>
             <div className="admissions-facts">
               <div><strong>Age groups</strong><span>0-5 years</span></div>
-              <div><strong>Opening hours</strong><span>Mon-Sat, 7:30 AM-6:00 PM</span></div>
+              <div><strong>Visiting hours</strong><span>3:00 PM - 5:00 PM</span></div>
               <div><strong>Fees</strong><span>Contact us for current details</span></div>
             </div>
           </div>

@@ -56,7 +56,7 @@ const Home = () => {
           <div className="home-hero__card">
             <span className="home-hero__card-icon"><FaHeart /></span>
             <strong>Care that feels like family</strong>
-            <span>Mon - Sat &middot; 7:30 AM - 6:00 PM</span>
+            <span>Visiting hours: 3:00 PM - 5:00 PM</span>
           </div>
         </div>
         <a className="home-hero__scroll" href="#welcome" aria-label="Scroll to welcome section"><span /> Explore our world</a>
@@ -66,7 +66,7 @@ const Home = () => {
         <div className="container home-trust__grid">
           <div><FaShieldAlt /><span><strong>Safe & secure</strong>Thoughtful spaces, close supervision</span></div>
           <div><FaHeart /><span><strong>Kind caregivers</strong>Patient, attentive, and trained</span></div>
-          <div><FaClock /><span><strong>Open six days</strong>Reliable care for busy families</span></div>
+          <div><FaClock /><span><strong>Visiting hours</strong>3:00 PM - 5:00 PM</span></div>
         </div>
       </section>
 
