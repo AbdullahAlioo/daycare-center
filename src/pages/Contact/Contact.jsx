@@ -98,7 +98,7 @@ const Contact = () => {
             <div className="contact-socials">
               <span>Follow along</span>
               <a href="https://www.facebook.com/angelsandfairiesdcc" aria-label="Facebook"><FaFacebookF /></a>
-              <a href="https://instagram.com" aria-label="Instagram"><FaInstagram /></a>
+              <a href="https://www.instagram.com/angles_fairies_daycare/" aria-label="Instagram"><FaInstagram /></a>
               <a href="https://wa.me/923001234567" aria-label="WhatsApp"><FaWhatsapp /></a>
             </div>
           </div>

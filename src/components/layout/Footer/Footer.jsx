@@ -9,7 +9,7 @@
 
 import { Link } from 'react-router-dom';
 import {
-  FaFacebookF, FaInstagram, FaWhatsapp, FaYoutube,
+  FaFacebookF, FaInstagram, FaWhatsapp,
   FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock,
 } from 'react-icons/fa';
 import logoMain from '../../../assets/images/Untitled-01.png';
@@ -35,9 +35,8 @@ const PROGRAM_LINKS = [
 
 const SOCIALS = [
   { href: 'https://www.facebook.com/angelsandfairiesdcc', icon: <FaFacebookF />, label: 'Facebook' },
-  { href: 'https://instagram.com', icon: <FaInstagram />, label: 'Instagram' },
+  { href: 'https://www.instagram.com/angles_fairies_daycare/', icon: <FaInstagram />, label: 'Instagram' },
   { href: 'https://wa.me/923001234567', icon: <FaWhatsapp />, label: 'WhatsApp' },
-  { href: 'https://youtube.com', icon: <FaYoutube />, label: 'YouTube' },
 ];
 
 const Footer = () => {
