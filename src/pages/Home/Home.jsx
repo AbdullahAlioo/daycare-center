@@ -74,7 +74,7 @@ const Home = () => {
         <div className="container home-welcome__grid">
           <div className="home-photo-frame home-photo-frame--welcome">
             <img src={aboutImage} alt="A welcoming daycare learning space" />
-            <div className="home-photo-stamp"><strong>2018</strong><span>loving little<br />learners</span></div>
+            <div className="home-photo-stamp"><strong>2010</strong><span>loving little<br />learners</span></div>
           </div>
           <div className="home-copy">
             <p className="home-kicker">Welcome to Angels & Fairies</p>
