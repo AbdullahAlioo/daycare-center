@@ -10,8 +10,8 @@ import {
   FaSeedling,
   FaStar,
 } from 'react-icons/fa';
-import activitiesImage from '../../assets/images/activities.jpg';
-import aboutImage from '../../assets/images/about.jpg';
+import activitiesImage from '../../assets/images/activities.png';
+import aboutImage from '../../assets/images/scenes/story-time.jpg';
 import './Activities.css';
 
 const ACTIVITIES = [

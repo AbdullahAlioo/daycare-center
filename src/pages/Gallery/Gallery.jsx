@@ -1,22 +1,44 @@
 ﻿import { useState } from 'react';
 import { FaArrowRight, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import heroImage from '../../assets/images/hero.jpg';
-import aboutImage from '../../assets/images/about.jpg';
-import activitiesImage from '../../assets/images/activities.jpg';
-import facilitiesImage from '../../assets/images/facilities.jpg';
+import heroImage from '../../assets/images/hero.png';
+import aboutImage from '../../assets/images/about.png';
+import activitiesImage from '../../assets/images/activities.png';
+import facilitiesImage from '../../assets/images/facilities.png';
+import programsImage from '../../assets/images/programs.png';
+import safetyImage from '../../assets/images/safety&trust.png';
+import eidImage from '../../assets/images/Joyful Eid Celebration with Children and Treats.png';
+import storyTimeImage from '../../assets/images/scenes/story-time.jpg';
+import musicImage from '../../assets/images/scenes/music-and-movement.jpg';
+import outdoorPlayImage from '../../assets/images/scenes/outdoor-play.jpg';
+import learningDuasImage from '../../assets/images/scenes/learning-duas.jpg';
+import friendshipImage from '../../assets/images/scenes/friendship.jpg';
+import playAreaImage from '../../assets/images/scenes/play-area.jpg';
+import restAreaImage from '../../assets/images/scenes/rest-area.jpg';
+import mealsImage from '../../assets/images/scenes/healthy-meals.jpg';
+import birthdayImage from '../../assets/images/scenes/birthday-celebration.jpg';
 import './Gallery.css';
 
 const GALLERY_ITEMS = [
-  { image: activitiesImage, title: 'Creative studio', category: 'Activities', description: 'Making room for color, curiosity, and creative confidence.' },
+  { image: activitiesImage, title: 'Creative play', category: 'Activities', description: 'Room for color, curiosity, and creative confidence.' },
   { image: heroImage, title: 'A warm welcome', category: 'Our spaces', description: 'A cheerful beginning to every day at Angels & Fairies.' },
-  { image: aboutImage, title: 'Learning together', category: 'Learning', description: 'Shared stories and thoughtful moments with caring adults.' },
-  { image: facilitiesImage, title: 'Our learning room', category: 'Our spaces', description: 'Bright, flexible spaces ready for little hands and big ideas.' },
-  { image: activitiesImage, title: 'Making and exploring', category: 'Activities', description: 'Hands-on invitations that let children follow their interests.' },
-  { image: heroImage, title: 'Playful beginnings', category: 'Events', description: 'The everyday moments that become happy memories.' },
+  { image: aboutImage, title: 'Growing together', category: 'Development', description: 'Play, connection, and thoughtful moments with caring adults.' },
+  { image: eidImage, title: 'Eid celebrations', category: 'Events', description: 'Eidi, mithai, and festive smiles shared together.' },
+  { image: facilitiesImage, title: 'Our facilities', category: 'Our spaces', description: 'Bright, flexible spaces ready for little hands and big ideas.' },
+  { image: storyTimeImage, title: 'Story time', category: 'Activities', description: 'Stories that spark imagination and a love of reading.' },
+  { image: programsImage, title: 'Programs for every stage', category: 'Development', description: 'Age-appropriate activities that support confidence and development.' },
+  { image: safetyImage, title: 'Safe and cared for', category: 'Our spaces', description: 'Attentive care in a warm, reassuring environment.' },
+  { image: musicImage, title: 'Music and movement', category: 'Activities', description: 'Clapping, singing, and dancing our way through the day.' },
+  { image: learningDuasImage, title: 'Values and duas', category: 'Development', description: 'Gentle lessons in kindness, gratitude, and everyday duas.' },
+  { image: outdoorPlayImage, title: 'Outdoor play', category: 'Activities', description: 'Fresh air, sunshine, and plenty of room to run.' },
+  { image: playAreaImage, title: 'Soft play area', category: 'Our spaces', description: 'Cushioned, colorful spaces made for safe adventures.' },
+  { image: friendshipImage, title: 'Making friends', category: 'Development', description: 'Little friendships that grow every single day.' },
+  { image: mealsImage, title: 'Healthy meals', category: 'Our spaces', description: 'Wholesome, home-style meals enjoyed together.' },
+  { image: restAreaImage, title: 'Rest time', category: 'Our spaces', description: 'Calm, cozy corners for quiet rest and naps.' },
+  { image: birthdayImage, title: 'Birthday parties', category: 'Events', description: 'Cakes, candles, and happy celebrations with friends.' },
 ];
 
-const CATEGORIES = ['All', 'Activities', 'Learning', 'Our spaces', 'Events'];
+const CATEGORIES = ['All', 'Activities', 'Development', 'Our spaces', 'Events'];
 
 const Gallery = () => {
   const [category, setCategory] = useState('All');

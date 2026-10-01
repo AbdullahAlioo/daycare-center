@@ -9,8 +9,8 @@ import {
   FaPuzzlePiece,
   FaUsers,
 } from 'react-icons/fa';
-import activitiesImage from '../../assets/images/activities.jpg';
-import facilitiesImage from '../../assets/images/facilities.jpg';
+import activitiesImage from '../../assets/images/programs.png';
+import facilitiesImage from '../../assets/images/scenes/classroom.jpg';
 import './Programs.css';
 
 const PROGRAMS = [

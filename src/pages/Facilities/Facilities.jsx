@@ -9,8 +9,8 @@ import {
   FaShieldAlt,
   FaSun,
 } from 'react-icons/fa';
-import facilitiesImage from '../../assets/images/facilities.jpg';
-import activitiesImage from '../../assets/images/activities.jpg';
+import facilitiesImage from '../../assets/images/facilities.png';
+import activitiesImage from '../../assets/images/scenes/supervision.jpg';
 import './Facilities.css';
 
 const SPACES = [

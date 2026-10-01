@@ -9,10 +9,12 @@ import {
   FaShieldAlt,
   FaStar,
 } from 'react-icons/fa';
-import heroImage from '../../assets/images/hero.jpg';
-import aboutImage from '../../assets/images/about.jpg';
-import activitiesImage from '../../assets/images/activities.jpg';
-import facilitiesImage from '../../assets/images/facilities.jpg';
+import heroImage from '../../assets/images/hero.png';
+import aboutImage from '../../assets/images/about.png';
+import activitiesImage from '../../assets/images/activities.png';
+import facilitiesImage from '../../assets/images/safety&trust.png';
+import programsImage from '../../assets/images/programs.png';
+import momentsImage from '../../assets/images/Joyful Eid Celebration with Children and Treats.png';
 import './Home.css';
 
 const PROGRAMS = [
@@ -107,7 +109,7 @@ const Home = () => {
       </section>
 
       <section className="home-section home-gallery">
-        <div className="container"><div className="home-section-heading"><div><p className="home-kicker">A peek inside</p><h2>Days filled with <em>discovery.</em></h2></div><Link to="/gallery" className="home-text-link">See the gallery <FaArrowRight /></Link></div><div className="home-gallery__grid"><img src={activitiesImage} alt="Children enjoying a creative activity" /><img src={heroImage} alt="Daycare play area" /><img src={aboutImage} alt="Children learning together" /></div></div>
+        <div className="container"><div className="home-section-heading"><div><p className="home-kicker">A peek inside</p><h2>Days filled with <em>discovery.</em></h2></div><Link to="/gallery" className="home-text-link">See the gallery <FaArrowRight /></Link></div><div className="home-gallery__grid"><img src={activitiesImage} alt="Children enjoying a creative activity" /><img src={programsImage} alt="Children taking part in a daycare program" /><img src={momentsImage} alt="A collage of joyful moments at the daycare" /></div></div>
       </section>
 
       <section className="home-section home-testimonials"><div className="container"><div className="home-section-heading"><div><p className="home-kicker">Kind words from families</p><h2>What parents <em>feel.</em></h2></div></div><div className="home-testimonial-grid">{TESTIMONIALS.map((item) => <figure className="home-testimonial" key={item.name}><div className="home-stars" aria-label="5 out of 5 stars"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div><blockquote>“{item.quote}”</blockquote><figcaption><strong>{item.name}</strong><span>{item.detail}</span></figcaption></figure>)}</div></div></section>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCalendarAlt, FaCheck, FaFileAlt, FaHeart, FaPhone } from 'react-icons/fa';
 import { supabase, isSupabaseConfigured } from '../../lib/supabase';
-import aboutImage from '../../assets/images/about.jpg';
+import admissionsImage from '../../assets/images/safety&trust.png';
 import './Admissions.css';
 
 const STEPS = [
@@ -53,7 +53,7 @@ const Admissions = () => {
   return (
     <div className="admissions-page">
       <section className="admissions-hero">
-        <div className="admissions-hero__image" style={{ backgroundImage: `url(${aboutImage})` }} />
+        <div className="admissions-hero__image" style={{ backgroundImage: `url(${admissionsImage})` }} />
         <div className="admissions-hero__overlay" />
         <div className="container admissions-hero__inner">
           <p className="admissions-kicker">A happy beginning starts here</p>
