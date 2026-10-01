@@ -2,11 +2,11 @@
 import {
   FaArrowRight,
   FaBaby,
-  FaBookOpen,
   FaCheck,
   FaClock,
   FaHeart,
   FaPalette,
+  FaPuzzlePiece,
   FaUsers,
 } from 'react-icons/fa';
 import activitiesImage from '../../assets/images/activities.jpg';
@@ -33,21 +33,21 @@ const PROGRAMS = [
     tone: 'peach',
   },
   {
-    icon: FaBookOpen,
+    icon: FaPuzzlePiece,
     age: '2-4 years',
     title: 'Preschool Program',
-    intro: 'Joyful, play-led learning that helps children make friends and feel ready for their next big step.',
-    activities: ['Stories, art, and early literacy', 'Counting, building, and discovery', 'Cooperative play and problem solving'],
-    benefits: 'Curiosity, creativity, school readiness',
+    intro: 'A play-based developmental program focused on confidence, communication, and independence, not formal academic instruction.',
+    activities: ['Fine-motor coordination through art and hands-on play', 'Cognitive exploration through puzzles and problem-solving games', 'Communication, confidence, and positive social interaction', 'Healthy eating habits and everyday independence'],
+    benefits: 'Confidence, communication, cognitive and fine-motor development',
     tone: 'gold',
   },
   {
     icon: FaPalette,
     age: '4-5 years',
     title: 'Early Learning',
-    intro: 'A thoughtful bridge to school with rich projects, confident communication, and growing responsibility.',
-    activities: ['Early writing and number concepts', 'Science, nature, and creative projects', 'Group discussions and leadership moments'],
-    benefits: 'Independence, focus, confidence',
+    intro: 'A supportive space to strengthen communication, concentration, and everyday independence through play and caring routines.',
+    activities: ['Creative projects that build fine-motor coordination', 'Puzzles and hands-on problem-solving activities', 'Conversation, cooperation, and confidence-building choices'],
+    benefits: 'Independence, focus, communication, confidence',
     tone: 'blue',
   },
 ];
@@ -60,7 +60,7 @@ const Programs = () => (
       <div className="container programs-hero__inner">
         <p className="programs-kicker">Growing at their own pace</p>
         <h1>Programs for every<br /><em>little stage.</em></h1>
-        <p>From first giggles to confident school steps, our age-appropriate programs give children the care, play, and encouragement they need to flourish.</p>
+        <p>From first giggles to growing independence, our age-appropriate programs give children the care, play, and encouragement they need to flourish.</p>
       </div>
     </section>
 
@@ -74,7 +74,7 @@ const Programs = () => (
 
     <section className="programs-section programs-list">
       <div className="container">
-        <div className="programs-heading"><p className="programs-kicker">Find their next happy place</p><h2>Care that grows with <em>your child.</em></h2><p>Every program is designed around the way children learn at that age, while keeping the day warm, active, and reassuringly consistent.</p></div>
+        <div className="programs-heading"><p className="programs-kicker">Find their next happy place</p><h2>Care that grows with <em>your child.</em></h2><p>Every program supports children’s developmental needs at their age, while keeping the day warm, active, and reassuringly consistent.</p></div>
         <div className="programs-cards">{PROGRAMS.map(({ icon: Icon, age, title, intro, activities, benefits, tone }) => <article className={`program-card program-card--${tone}`} key={title}><div className="program-card__top"><span className="program-card__icon"><Icon /></span><span className="program-card__age">{age}</span></div><h3>{title}</h3><p className="program-card__intro">{intro}</p><div className="program-card__details"><strong>What they will explore</strong><ul>{activities.map((activity) => <li key={activity}><FaCheck />{activity}</li>)}</ul><strong>Growing through</strong><p>{benefits}</p></div><Link to="/admissions" className="program-card__link">Enquire about this program <FaArrowRight /></Link></article>)}</div>
       </div>
     </section>
@@ -86,7 +86,7 @@ const Programs = () => (
       </div>
     </section>
 
-    <section className="programs-section programs-extra"><div className="container programs-extra__grid"><div><p className="programs-kicker">Flexible support for families</p><h2>More ways to make care <em>work for you.</em></h2><p>Need a little extra coverage around the school day? Ask our team about available after-school care and how we can support your family routine.</p><Link to="/contact" className="programs-button programs-button--outline">Talk with our team <FaArrowRight /></Link></div><div className="programs-extra__card"><FaUsers /><h3>After-School Care</h3><span>For school-age children</span><p>A caring place to land after school, with time for snacks, homework support, creative play, and friendships.</p><Link to="/contact" className="programs-link">Check availability <FaArrowRight /></Link></div></div></section>
+    <section className="programs-section programs-extra"><div className="container programs-extra__grid"><div><p className="programs-kicker">Flexible support for families</p><h2>More ways to make care <em>work for you.</em></h2><p>Need a little extra coverage around the school day? Ask our team about available after-school care and how we can support your family routine.</p><Link to="/contact" className="programs-button programs-button--outline">Talk with our team <FaArrowRight /></Link></div><div className="programs-extra__card"><FaUsers /><h3>After-School Care</h3><span>For school-age children</span><p>A caring place to land after school, with time for snacks, relaxed conversation, creative play, and friendships.</p><Link to="/contact" className="programs-link">Check availability <FaArrowRight /></Link></div></div></section>
 
     <section className="programs-cta"><div className="container"><p className="programs-kicker">The right fit starts with a conversation</p><h2>Let us help you choose<br /><em>their next step.</em></h2><Link to="/admissions" className="programs-button">Start an enquiry <FaArrowRight /></Link></div></section>
   </div>

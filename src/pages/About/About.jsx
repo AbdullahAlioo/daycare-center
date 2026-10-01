@@ -39,7 +39,7 @@ const About = () => (
           <p className="about-kicker">Our story</p>
           <h2>Childhood filled with love, security, learning, and <em>meaningful experiences.</em></h2>
           <p>Founded in 2010, Angels & Fairies Daycare Centre has proudly spent 16 years caring for, nurturing, and supporting young children and their families.</p>
-          <p>We believe every child deserves a warm, wholesome environment where they feel safe, valued, and confident to explore the world around them. Childcare is more than supervision: we nurture emotional, social, physical, cognitive, and spiritual development through age-appropriate learning, play, positive interaction, and compassionate care.</p>
+          <p>We believe every child deserves a warm, wholesome environment where they feel safe, valued, and confident to explore the world around them. Childcare is more than supervision: we nurture emotional, social, physical, cognitive, and spiritual development through age-appropriate play, positive interaction, and compassionate care.</p>
           <Link to="/contact" className="about-link">Talk with our team <FaArrowRight /></Link>
         </div>
       </div>
@@ -64,7 +64,7 @@ const About = () => (
 
     <section className="about-values about-section">
       <div className="container">
-        <div className="about-heading"><p className="about-kicker">Our approach</p><h2>Learn through play. <em>Grow at their own pace.</em></h2><p>We create an environment where children explore with confidence, build positive relationships, express themselves, and develop at their own pace. Safety, cleanliness, responsive caregiving, meaningful early-learning opportunities, and strong communication with families remain at the heart of our approach.</p></div>
+        <div className="about-heading"><p className="about-kicker">Our approach</p><h2>Grow through play. <em>Develop at their own pace.</em></h2><p>We create an environment where children explore with confidence, build positive relationships, express themselves, and develop at their own pace. Safety, cleanliness, responsive caregiving, meaningful developmental activities, and strong communication with families remain at the heart of our approach.</p></div>
         <div className="about-values__grid">{VALUES.map(({ icon: Icon, title, text }) => <article key={title}><span className="about-value-icon"><Icon /></span><h3>{title}</h3><p>{text}</p></article>)}</div>
       </div>
     </section>

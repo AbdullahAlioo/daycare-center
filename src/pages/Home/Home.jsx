@@ -18,7 +18,7 @@ import './Home.css';
 const PROGRAMS = [
   { age: '0-1 year', title: 'Infant Care', text: 'Gentle routines, responsive care, and a calm space for your baby to thrive.', tone: 'sage' },
   { age: '1-2 years', title: 'Toddler Care', text: 'Play-based discovery that builds confidence, language, and early independence.', tone: 'peach' },
-  { age: '2-4 years', title: 'Preschool', text: 'Creative learning, friendships, and joyful first steps toward school readiness.', tone: 'gold' },
+  { age: '2-4 years', title: 'Preschool', text: 'Play-based activities build confidence, communication, cognitive skills, and fine-motor coordination.', tone: 'gold' },
 ];
 
 const TESTIMONIALS = [
@@ -82,7 +82,7 @@ const Home = () => {
             <p>We believe childhood should feel unhurried, joyful, and full of wonder. Our days balance caring routines with open-ended play, creative exploration, and the simple comfort of familiar faces.</p>
             <ul className="home-check-list">
               <li><FaCheck /> Small-group attention</li>
-              <li><FaCheck /> Age-appropriate learning</li>
+              <li><FaCheck /> Age-appropriate developmental play</li>
               <li><FaCheck /> Warm parent communication</li>
             </ul>
             <Link to="/about" className="home-text-link">Meet our approach <FaArrowRight /></Link>
