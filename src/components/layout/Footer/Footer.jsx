@@ -27,7 +27,7 @@ const QUICK_LINKS = [
 const PROGRAM_LINKS = [
   { to: '/programs', label: 'Infant Care (0–1 yr)' },
   { to: '/programs', label: 'Toddler Care (1–2 yrs)' },
-  { to: '/programs', label: 'Preschool (2–4 yrs)' },
+  { to: '/programs', label: 'Developmental Play (2–4 yrs)' },
   { to: '/programs', label: 'Early Learning (4–5 yrs)' },
   { to: '/programs', label: 'After-School Care' },
   { to: '/admissions', label: 'Enroll Now' },

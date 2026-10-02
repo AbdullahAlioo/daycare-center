@@ -10,7 +10,7 @@ import {
   FaUsers,
 } from 'react-icons/fa';
 import activitiesImage from '../../assets/images/programs.png';
-import facilitiesImage from '../../assets/images/scenes/classroom.jpg';
+import facilitiesImage from '../../assets/images/scenes/girl-craft-table.jpg';
 import './Programs.css';
 
 const PROGRAMS = [
@@ -35,7 +35,7 @@ const PROGRAMS = [
   {
     icon: FaPuzzlePiece,
     age: '2-4 years',
-    title: 'Preschool Program',
+    title: 'Developmental Play',
     intro: 'A play-based developmental program focused on confidence, communication, and independence, not formal academic instruction.',
     activities: ['Fine-motor coordination through art and hands-on play', 'Cognitive exploration through puzzles and problem-solving games', 'Communication, confidence, and positive social interaction', 'Healthy eating habits and everyday independence'],
     benefits: 'Confidence, communication, cognitive and fine-motor development',
@@ -81,7 +81,7 @@ const Programs = () => (
 
     <section className="programs-section programs-rhythm">
       <div className="container programs-rhythm__grid">
-        <div className="programs-rhythm__image"><img src={facilitiesImage} alt="Children learning in a bright daycare classroom" /><span>Every day has a gentle rhythm.</span></div>
+        <div className="programs-rhythm__image"><img src={facilitiesImage} alt="A girl painting at the craft table" /><span>Every day has a gentle rhythm.</span></div>
         <div><p className="programs-kicker">A day at Angels & Fairies</p><h2>Predictable enough to feel safe. <em>Flexible enough to feel fun.</em></h2><p>Children settle into a familiar flow, with plenty of room for their interests and energy. Our caregivers balance active discovery with quiet moments and rest.</p><ol className="programs-timeline"><li><span>01</span><div><strong>Welcome & settle in</strong><p>A warm greeting and a gentle start to the day.</p></div></li><li><span>02</span><div><strong>Explore & create</strong><p>Play, projects, stories, and age-group activities.</p></div></li><li><span>03</span><div><strong>Eat, rest & recharge</strong><p>Nutritious breaks and calm routines when little bodies need them.</p></div></li><li><span>04</span><div><strong>Share & head home</strong><p>Connection, reflection, and a happy handover to families.</p></div></li></ol></div>
       </div>
     </section>

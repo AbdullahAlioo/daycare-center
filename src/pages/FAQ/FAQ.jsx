@@ -4,7 +4,7 @@ import { FaArrowRight, FaChevronDown, FaClock, FaHeart, FaShieldAlt } from 'reac
 import './FAQ.css';
 
 const QUESTIONS = [
-  { question: 'What age groups do you accept?', answer: 'We welcome children from 0 to 5 years across our infant, toddler, preschool, and early learning programs. Our team can help you find the best fit for your child’s age and stage.' },
+  { question: 'What age groups do you accept?', answer: 'We welcome children from 0 to 5 years across our infant care, toddler care, developmental play, and early learning programs. Our team can help you find the best fit for your child’s age and stage.' },
   { question: 'What are your visiting hours?', answer: 'Visiting hours are from 3:00 PM to 5:00 PM. Please contact us to arrange your visit.' },
   { question: 'How do you ensure children’s safety?', answer: 'Our environment is designed around close supervision, secure access, clear routines, age-appropriate equipment, and attentive caregiver relationships. We also maintain hygiene and emergency procedures for every room.' },
   { question: 'What should my child bring each day?', answer: 'Please bring a labelled change of clothes, any comfort item your child needs, and age-appropriate personal supplies. Our admissions team will share a tailored checklist before your child starts.' },

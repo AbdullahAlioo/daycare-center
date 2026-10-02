@@ -14,17 +14,18 @@ import aboutImage from '../../assets/images/about.png';
 import activitiesImage from '../../assets/images/activities.png';
 import facilitiesImage from '../../assets/images/safety&trust.png';
 import programsImage from '../../assets/images/programs.png';
+import VideoMoments from '../../components/common/VideoMoments/VideoMoments';
 import momentsImage from '../../assets/images/Joyful Eid Celebration with Children and Treats.png';
 import './Home.css';
 
 const PROGRAMS = [
   { age: '0-1 year', title: 'Infant Care', text: 'Gentle routines, responsive care, and a calm space for your baby to thrive.', tone: 'sage' },
   { age: '1-2 years', title: 'Toddler Care', text: 'Play-based discovery that builds confidence, language, and early independence.', tone: 'peach' },
-  { age: '2-4 years', title: 'Preschool', text: 'Play-based activities build confidence, communication, cognitive skills, and fine-motor coordination.', tone: 'gold' },
+  { age: '2-4 years', title: 'Developmental Play', text: 'Play-based activities build confidence, communication, cognitive skills, and fine-motor coordination.', tone: 'gold' },
 ];
 
 const TESTIMONIALS = [
-  { quote: 'The team made our daughter feel at home from her very first morning. We see her confidence growing every week.', name: 'Ayesha R.', detail: 'Parent of a preschooler' },
+  { quote: 'The team made our daughter feel at home from her very first morning. We see her confidence growing every week.', name: 'Ayesha R.', detail: 'Parent of a 3-year-old' },
   { quote: 'We love the thoughtful routines, regular updates, and the genuine care every caregiver shows the children.', name: 'Hassan M.', detail: 'Parent of a toddler' },
 ];
 
@@ -111,6 +112,8 @@ const Home = () => {
       <section className="home-section home-gallery">
         <div className="container"><div className="home-section-heading"><div><p className="home-kicker">A peek inside</p><h2>Days filled with <em>discovery.</em></h2></div><Link to="/gallery" className="home-text-link">See the gallery <FaArrowRight /></Link></div><div className="home-gallery__grid"><img src={activitiesImage} alt="Children enjoying a creative activity" /><img src={programsImage} alt="Children taking part in a daycare program" /><img src={momentsImage} alt="A collage of joyful moments at the daycare" /></div></div>
       </section>
+
+      <VideoMoments />
 
       <section className="home-section home-testimonials"><div className="container"><div className="home-section-heading"><div><p className="home-kicker">Kind words from families</p><h2>What parents <em>feel.</em></h2></div></div><div className="home-testimonial-grid">{TESTIMONIALS.map((item) => <figure className="home-testimonial" key={item.name}><div className="home-stars" aria-label="5 out of 5 stars"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div><blockquote>“{item.quote}”</blockquote><figcaption><strong>{item.name}</strong><span>{item.detail}</span></figcaption></figure>)}</div></div></section>
 

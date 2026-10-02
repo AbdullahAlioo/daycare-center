@@ -9,8 +9,8 @@ import {
   FaUsers,
 } from 'react-icons/fa';
 import aboutImage from '../../assets/images/about.png';
-import activitiesImage from '../../assets/images/scenes/indoor-games.jpg';
-import facilitiesImage from '../../assets/images/scenes/learning-duas.jpg';
+import activitiesImage from '../../assets/images/scenes/art-table-overhead.jpg';
+import facilitiesImage from '../../assets/images/scenes/thank-you-card-mural.jpg';
 import './About.css';
 
 const VALUES = [
@@ -72,7 +72,7 @@ const About = () => (
     <section className="about-mission about-section">
       <div className="container about-mission__grid">
         <div><p className="about-kicker">Our promise</p><h2>Safe like home.<br />Loved like family.<br /><em>Encouraged to grow.</em></h2><p>We want every child who enters Angels & Fairies to feel safe, loved, and encouraged. Safety, cleanliness, responsive caregiving, meaningful learning, and strong family communication guide our care.</p><ul>{['A safe and wholesome environment', 'Learning through age-appropriate play', 'Compassionate care and moral nurturing'].map((item) => <li key={item}><FaCheck /> {item}</li>)}</ul></div>
-        <div className="about-mission__photo"><img src={facilitiesImage} alt="A bright and thoughtfully arranged daycare room" /><div><strong>Care • Learning • Love • Values</strong><span>Angels & Fairies Daycare Centre</span></div></div>
+        <div className="about-mission__photo"><img src={facilitiesImage} alt="A child holding her handmade thank-you card in front of our painted tree mural" /><div><strong>Care • Learning • Love • Values</strong><span>Angels & Fairies Daycare Centre</span></div></div>
       </div>
     </section>
 

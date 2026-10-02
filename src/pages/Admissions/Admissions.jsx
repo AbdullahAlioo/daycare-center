@@ -207,7 +207,7 @@ const Admissions = () => {
                       <option value="" disabled>Select a program</option>
                       <option value="Infant Care">Infant Care</option>
                       <option value="Toddler Care">Toddler Care</option>
-                      <option value="Preschool Program">Preschool Program</option>
+                      <option value="Developmental Play">Developmental Play</option>
                       <option value="Early Learning">Early Learning</option>
                       <option value="After-School Care">After-School Care</option>
                     </select>

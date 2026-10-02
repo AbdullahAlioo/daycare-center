@@ -11,7 +11,7 @@ import {
   FaStar,
 } from 'react-icons/fa';
 import activitiesImage from '../../assets/images/activities.png';
-import aboutImage from '../../assets/images/scenes/story-time.jpg';
+import aboutImage from '../../assets/images/scenes/boys-drawing-cards.jpg';
 import './Activities.css';
 
 const ACTIVITIES = [
@@ -39,7 +39,7 @@ const Activities = () => (
 
     <section className="activities-list activities-section"><div className="container"><div className="activities-heading"><p className="activities-kicker">A full, joyful day</p><h2>Something wonderful to try <em>every day.</em></h2><p>Our activity mix changes with the seasons, the children’s questions, and the energy in the room.</p></div><div className="activities-grid">{ACTIVITIES.map(({ icon: Icon, title, text, tone }) => <article className={`activity-card activity-card--${tone}`} key={title}><span className="activity-card__icon"><Icon /></span><h3>{title}</h3><p>{text}</p><span className="activity-card__arrow"><FaArrowRight /></span></article>)}</div></div></section>
 
-    <section className="activities-feature activities-section"><div className="container activities-feature__grid"><div className="activities-feature__image"><img src={aboutImage} alt="Children sharing a creative learning activity" /><span><FaStar /> Wonder is welcome here</span></div><div><p className="activities-kicker">More than a schedule</p><h2>We notice what makes each child <em>light up.</em></h2><p>Some children find their voice in a story circle. Others begin with paint, blocks, music, or a careful look at a leaf. Our caregivers pay attention and create more of the moments that help each child feel capable.</p><ul><li><FaFlask /> Hands-on exploration</li><li><FaChild /> Social and emotional growth</li><li><FaMusic /> Movement and self-expression</li></ul><Link to="/programs" className="activities-link">See our programs <FaArrowRight /></Link></div></div></section>
+    <section className="activities-feature activities-section"><div className="container activities-feature__grid"><div className="activities-feature__image"><img src={aboutImage} alt="Two boys drawing cards together at the craft table" /><span><FaStar /> Wonder is welcome here</span></div><div><p className="activities-kicker">More than a schedule</p><h2>We notice what makes each child <em>light up.</em></h2><p>Some children find their voice in a story circle. Others begin with paint, blocks, music, or a careful look at a leaf. Our caregivers pay attention and create more of the moments that help each child feel capable.</p><ul><li><FaFlask /> Hands-on exploration</li><li><FaChild /> Social and emotional growth</li><li><FaMusic /> Movement and self-expression</li></ul><Link to="/programs" className="activities-link">See our programs <FaArrowRight /></Link></div></div></section>
 
     <section className="activities-cta"><div className="container"><p className="activities-kicker">Come see learning in action</p><h2>There is always room<br /><em>for one more idea.</em></h2><Link to="/contact" className="activities-button">Book a visit <FaArrowRight /></Link></div></section>
   </div>
