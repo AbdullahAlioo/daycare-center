@@ -23,7 +23,7 @@ import eidToddlerImage from '../../assets/images/scenes/eid-toddler-white-kurta.
 import lehengaImage from '../../assets/images/scenes/girl-gota-lehenga.jpg';
 import secondBirthdayImage from '../../assets/images/scenes/second-birthday-toddler.jpg';
 import dadCardImage from '../../assets/images/scenes/dad-love-card-boy.jpg';
-import bannerImage from '../../assets/images/scenes/independence-day-group.jpg';
+import bannerImage from '../../assets/images/banners/gallery-banner.jpeg';
 import VideoMoments from '../../components/common/VideoMoments/VideoMoments';
 import './Gallery.css';
 
