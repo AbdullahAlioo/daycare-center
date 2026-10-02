@@ -1,7 +1,7 @@
 .home-page { overflow: hidden; }
 .home-hero { min-height: 720px; position: relative; display: flex; align-items: center; color: white; isolation: isolate; }
 .home-hero__image, .home-hero__wash { position: absolute; inset: 0; z-index: -2; }
-.home-hero__image { background-size: cover; background-position: right center; }
+.home-hero__image { background-size: cover; background-position: 78% center; }
 .home-hero__wash { z-index: -1; background: linear-gradient(90deg, rgba(38,48,38,.9) 0%, rgba(38,48,38,.66) 42%, rgba(38,48,38,.12) 100%); }
 .home-hero__inner { position: relative; padding-top: 86px; display: flex; justify-content: space-between; align-items: center; gap: 48px; }
 .home-hero__content { max-width: 680px; animation: home-rise .8s var(--ease) both; }
