@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import Navbar          from './components/layout/Navbar/Navbar';
 import Footer          from './components/layout/Footer/Footer';
 import WhatsAppButton  from './components/common/WhatsAppButton/WhatsAppButton';
+import ScrollToTop     from './components/common/ScrollToTop';
 
 // Pages
 import Home       from './pages/Home/Home';
@@ -31,6 +32,8 @@ function AppContent() {
 
   return (
     <>
+      <ScrollToTop />
+
       {/* Sticky top navigation (hidden on admin pages) */}
       {!isAdminRoute && <Navbar />}
 

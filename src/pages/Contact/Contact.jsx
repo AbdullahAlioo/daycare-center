@@ -58,32 +58,32 @@ const Contact = () => {
             <h2>Good care begins with <em>good communication.</em></h2>
             <p>Reach out in the way that feels easiest for you. We can answer questions, share availability, and arrange a relaxed visit to the center.</p>
             <div className="contact-info-list">
-              <a href="tel:+923001234567">
+              <a href="tel:+923339638654">
                 <span><FaPhone /></span>
                 <div>
                   <strong>Call us</strong>
-                  <small>+92 300 123 4567</small>
+                  <small>0333 9638654</small>
                 </div>
               </a>
-              <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/923339638654" target="_blank" rel="noreferrer">
                 <span><FaWhatsapp /></span>
                 <div>
                   <strong>WhatsApp us</strong>
                   <small>Message our admissions team</small>
                 </div>
               </a>
-              <a href="mailto:info@angelsandfairies.pk">
+              <a href="mailto:angels.fairiesdaycare@gmail.com">
                 <span><FaEnvelope /></span>
                 <div>
                   <strong>Email us</strong>
-                  <small>info@angelsandfairies.pk</small>
+                  <small>angels.fairiesdaycare@gmail.com</small>
                 </div>
               </a>
               <div>
                 <span><FaMapMarkerAlt /></span>
                 <div>
                   <strong>Visit us</strong>
-                  <small>123 Main Boulevard, DHA Phase 2,<br />Lahore, Pakistan</small>
+                  <small>403 E, BOR Society, near Allah Hoo Roundabout,<br />Lahore, Pakistan</small>
                 </div>
               </div>
               <div>
@@ -99,7 +99,7 @@ const Contact = () => {
               <span>Follow along</span>
               <a href="https://www.facebook.com/angelsandfairiesdcc" aria-label="Facebook"><FaFacebookF /></a>
               <a href="https://www.instagram.com/angles_fairies_daycare/" aria-label="Instagram"><FaInstagram /></a>
-              <a href="https://wa.me/923001234567" aria-label="WhatsApp"><FaWhatsapp /></a>
+              <a href="https://wa.me/923339638654" aria-label="WhatsApp"><FaWhatsapp /></a>
             </div>
           </div>
 
@@ -206,8 +206,8 @@ const Contact = () => {
           <div className="contact-map__card">
             <FaMapMarkerAlt />
             <strong>Angels & Fairies Daycare Center</strong>
-            <span>123 Main Boulevard, DHA Phase 2<br />Lahore, Pakistan</span>
-            <a href="https://maps.google.com/?q=123+Main+Boulevard+DHA+Phase+2+Lahore" target="_blank" rel="noreferrer">Open in Google Maps</a>
+            <span>403 E, BOR Society, near Allah Hoo Roundabout<br />Lahore, Pakistan</span>
+            <a href="https://maps.google.com/?q=403+E+BOR+Society+Allah+Hoo+Chowk+Lahore" target="_blank" rel="noreferrer">Open in Google Maps</a>
           </div>
         </div>
       </section>

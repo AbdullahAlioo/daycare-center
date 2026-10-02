@@ -80,9 +80,9 @@ const Navbar = () => {
 
           {/* Desktop actions */}
           <div className="navbar__actions">
-            <a href="tel:+923001234567" className="navbar__call" aria-label="Call us">
+            <a href="tel:+923339638654" className="navbar__call" aria-label="Call us">
               <FaPhone size={13} />
-              +92 300 123 4567
+              0333 9638654
             </a>
             <Link
               to="/admissions"

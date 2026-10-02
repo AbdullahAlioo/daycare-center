@@ -36,7 +36,7 @@ const PROGRAM_LINKS = [
 const SOCIALS = [
   { href: 'https://www.facebook.com/angelsandfairiesdcc', icon: <FaFacebookF />, label: 'Facebook' },
   { href: 'https://www.instagram.com/angles_fairies_daycare/', icon: <FaInstagram />, label: 'Instagram' },
-  { href: 'https://wa.me/923001234567', icon: <FaWhatsapp />, label: 'WhatsApp' },
+  { href: 'https://wa.me/923339638654', icon: <FaWhatsapp />, label: 'WhatsApp' },
 ];
 
 const Footer = () => {
@@ -109,7 +109,7 @@ const Footer = () => {
               </div>
               <div className="footer__contact-text">
                 <strong>Address</strong>
-                123 Main Boulevard, DHA Phase 2,
+                403 E, BOR Society, near Allah Hoo Roundabout,
                 Lahore, Pakistan
               </div>
             </div>
@@ -120,8 +120,8 @@ const Footer = () => {
               </div>
               <div className="footer__contact-text">
                 <strong>Phone / WhatsApp</strong>
-                <a href="tel:+923001234567" style={{ color: 'inherit', textDecoration: 'none' }}>
-                  +92 300 123 4567
+                <a href="tel:+923339638654" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  0333 9638654
                 </a>
               </div>
             </div>
@@ -132,8 +132,8 @@ const Footer = () => {
               </div>
               <div className="footer__contact-text">
                 <strong>Email</strong>
-                <a href="mailto:info@angelsandfairies.pk" style={{ color: 'inherit', textDecoration: 'none' }}>
-                  info@angelsandfairies.pk
+                <a href="mailto:angels.fairiesdaycare@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  angels.fairiesdaycare@gmail.com
                 </a>
               </div>
             </div>

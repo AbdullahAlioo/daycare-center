@@ -7,8 +7,8 @@
 import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import './WhatsAppButton.css';
 
-const WHATSAPP_NUMBER = '923001234567';
-const PHONE_NUMBER    = '+923001234567';
+const WHATSAPP_NUMBER = '923339638654';
+const PHONE_NUMBER    = '+923339638654';
 const WA_MESSAGE      = encodeURIComponent(
   'Assalam o Alaikum! I am interested in enrolling my child at Angels & Fairies Daycare Center. Could you please share more information?'
 );

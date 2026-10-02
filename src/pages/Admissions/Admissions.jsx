@@ -254,8 +254,8 @@ const Admissions = () => {
         <div className="container">
           <p className="admissions-kicker">Questions are welcome</p>
           <h2>Prefer to speak with someone?<br /><em>We are here.</em></h2>
-          <a href="tel:+923001234567" className="admissions-button">
-            <FaPhone /> Call +92 300 123 4567
+          <a href="tel:+923339638654" className="admissions-button">
+            <FaPhone /> Call 0333 9638654
           </a>
         </div>
       </section>
