@@ -1,13 +1,6 @@
 ﻿import { useState } from 'react';
 import { FaArrowRight, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import heroImage from '../../assets/images/hero.png';
-import aboutImage from '../../assets/images/about.png';
-import activitiesImage from '../../assets/images/activities.png';
-import facilitiesImage from '../../assets/images/facilities.png';
-import programsImage from '../../assets/images/programs.png';
-import safetyImage from '../../assets/images/safety&trust.png';
-import eidImage from '../../assets/images/Joyful Eid Celebration with Children and Treats.png';
 import artTableImage from '../../assets/images/scenes/art-table-overhead.jpg';
 import drawingCardsImage from '../../assets/images/scenes/boys-drawing-cards.jpg';
 import guidedPaintingImage from '../../assets/images/scenes/caregiver-guided-painting.jpg';
@@ -25,6 +18,11 @@ import eidPairImage from '../../assets/images/scenes/eid-outfits-pair.jpg';
 import birthdayGirlImage from '../../assets/images/scenes/birthday-girl-and-friend.jpg';
 import independenceDayImage from '../../assets/images/scenes/independence-day-salute.jpg';
 import cultureDayImage from '../../assets/images/scenes/sindhi-waistcoat-boy.jpg';
+import eidSunglassesImage from '../../assets/images/scenes/eid-sunglasses-boy.jpg';
+import eidToddlerImage from '../../assets/images/scenes/eid-toddler-white-kurta.jpg';
+import lehengaImage from '../../assets/images/scenes/girl-gota-lehenga.jpg';
+import secondBirthdayImage from '../../assets/images/scenes/second-birthday-toddler.jpg';
+import dadCardImage from '../../assets/images/scenes/dad-love-card-boy.jpg';
 import bannerImage from '../../assets/images/scenes/independence-day-group.jpg';
 import VideoMoments from '../../components/common/VideoMoments/VideoMoments';
 import './Gallery.css';
@@ -47,13 +45,11 @@ const GALLERY_ITEMS = [
   { image: cultureDayImage, title: 'Culture day', category: 'Events', description: 'Dressing up in traditional outfits from across Pakistan.' },
   { image: puppetsImage, title: 'Puppets and balloons', category: 'Activities', description: 'Paper puppets, balloons, and lots of giggles.' },
   { image: toddlerCardImage, title: 'For Mama', category: 'Development', description: 'A toddler’s first handmade Mother’s Day card.' },
-  { image: activitiesImage, title: 'Creative play', category: 'Activities', description: 'Room for color, curiosity, and creative confidence.' },
-  { image: heroImage, title: 'A warm welcome', category: 'Our spaces', description: 'A cheerful beginning to every day at Angels & Fairies.' },
-  { image: aboutImage, title: 'Growing together', category: 'Development', description: 'Play, connection, and thoughtful moments with caring adults.' },
-  { image: eidImage, title: 'Eid celebrations', category: 'Events', description: 'Eidi, mithai, and festive smiles shared together.' },
-  { image: facilitiesImage, title: 'Our facilities', category: 'Our spaces', description: 'Bright, flexible spaces ready for little hands and big ideas.' },
-  { image: programsImage, title: 'Programs for every stage', category: 'Development', description: 'Age-appropriate activities that support confidence and development.' },
-  { image: safetyImage, title: 'Safe and cared for', category: 'Our spaces', description: 'Attentive care in a warm, reassuring environment.' },
+  { image: eidSunglassesImage, title: 'Eid style', category: 'Events', description: 'Crisp white kurta, waistcoat, and a confident pose.' },
+  { image: secondBirthdayImage, title: 'Turning two', category: 'Events', description: 'Balloons, chocolate cake, and a very proud birthday boy.' },
+  { image: dadCardImage, title: 'Dad, I love you', category: 'Development', description: 'A handmade card and the biggest smile.' },
+  { image: lehengaImage, title: 'Festive colours', category: 'Events', description: 'Dressed up in a shimmering gota lehenga for the celebrations.' },
+  { image: eidToddlerImage, title: 'Little Eid guest', category: 'Events', description: 'Our youngest ones love dressing up for Eid too.' },
 ];
 
 const CATEGORIES = ['All', 'Activities', 'Development', 'Our spaces', 'Events'];

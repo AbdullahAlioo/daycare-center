@@ -8,7 +8,7 @@ import {
   FaLeaf,
   FaUsers,
 } from 'react-icons/fa';
-import aboutImage from '../../assets/images/about.png';
+import aboutImage from '../../assets/images/banners/about-banner.jpg';
 import activitiesImage from '../../assets/images/scenes/art-table-overhead.jpg';
 import facilitiesImage from '../../assets/images/scenes/thank-you-card-mural.jpg';
 import './About.css';

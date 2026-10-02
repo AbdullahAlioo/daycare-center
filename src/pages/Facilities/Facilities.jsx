@@ -9,7 +9,7 @@ import {
   FaShieldAlt,
   FaSun,
 } from 'react-icons/fa';
-import facilitiesImage from '../../assets/images/facilities.png';
+import facilitiesImage from '../../assets/images/banners/facilities-banner.jpg';
 import activitiesImage from '../../assets/images/scenes/caregiver-guided-painting.jpg';
 import './Facilities.css';
 

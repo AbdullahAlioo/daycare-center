@@ -9,13 +9,13 @@ import {
   FaShieldAlt,
   FaStar,
 } from 'react-icons/fa';
-import heroImage from '../../assets/images/hero.png';
-import aboutImage from '../../assets/images/about.png';
-import activitiesImage from '../../assets/images/activities.png';
-import facilitiesImage from '../../assets/images/safety&trust.png';
-import programsImage from '../../assets/images/programs.png';
+import heroImage from '../../assets/images/banners/home-banner.jpg';
+import aboutImage from '../../assets/images/scenes/thank-you-card-mural.jpg';
+import activitiesImage from '../../assets/images/scenes/art-table-overhead.jpg';
+import facilitiesImage from '../../assets/images/scenes/caregiver-guided-painting.jpg';
+import programsImage from '../../assets/images/scenes/three-boys-red-tees.jpg';
 import VideoMoments from '../../components/common/VideoMoments/VideoMoments';
-import momentsImage from '../../assets/images/Joyful Eid Celebration with Children and Treats.png';
+import momentsImage from '../../assets/images/scenes/group-birthday-party.jpg';
 import './Home.css';
 
 const PROGRAMS = [
@@ -76,7 +76,7 @@ const Home = () => {
       <section className="home-section home-welcome" id="welcome">
         <div className="container home-welcome__grid">
           <div className="home-photo-frame home-photo-frame--welcome">
-            <img src={aboutImage} alt="A welcoming daycare learning space" />
+            <img src={aboutImage} alt="A child holding her handmade thank-you card in front of our painted tree mural" />
             <div className="home-photo-stamp"><strong>2010</strong><span>loving little<br />learners</span></div>
           </div>
           <div className="home-copy">
@@ -105,12 +105,12 @@ const Home = () => {
       <section className="home-section home-safety">
         <div className="container home-safety__grid">
           <div className="home-copy"><p className="home-kicker">More than childcare</p><h2>The little details make a <em>big difference.</em></h2><p>From the first hello in the morning to the final story before home time, our team creates a dependable rhythm where children can feel secure and parents can feel confident.</p><div className="home-safety__list"><span><FaShieldAlt /> Secure premises</span><span><FaHeart /> Caring supervision</span><span><FaCheck /> Clean, bright spaces</span><span><FaStar /> Joyful daily activities</span></div><Link to="/facilities" className="home-button home-button--outline">See our facilities <FaArrowRight /></Link></div>
-          <div className="home-safety__visual"><img src={facilitiesImage} alt="Bright, child-friendly daycare facility" /><div className="home-safety__badge"><FaShieldAlt /><strong>Safety first</strong><span>Every day, every child</span></div></div>
+          <div className="home-safety__visual"><img src={facilitiesImage} alt="A caregiver guiding a toddler through fingerprint painting" /><div className="home-safety__badge"><FaShieldAlt /><strong>Safety first</strong><span>Every day, every child</span></div></div>
         </div>
       </section>
 
       <section className="home-section home-gallery">
-        <div className="container"><div className="home-section-heading"><div><p className="home-kicker">A peek inside</p><h2>Days filled with <em>discovery.</em></h2></div><Link to="/gallery" className="home-text-link">See the gallery <FaArrowRight /></Link></div><div className="home-gallery__grid"><img src={activitiesImage} alt="Children enjoying a creative activity" /><img src={programsImage} alt="Children taking part in a daycare program" /><img src={momentsImage} alt="A collage of joyful moments at the daycare" /></div></div>
+        <div className="container"><div className="home-section-heading"><div><p className="home-kicker">A peek inside</p><h2>Days filled with <em>discovery.</em></h2></div><Link to="/gallery" className="home-text-link">See the gallery <FaArrowRight /></Link></div><div className="home-gallery__grid"><img src={activitiesImage} alt="Children making cards together at the art table" /><img src={programsImage} alt="Three friends smiling together" /><img src={momentsImage} alt="A group birthday party with cake and balloons" /></div></div>
       </section>
 
       <VideoMoments />

@@ -9,7 +9,7 @@ import {
   FaPuzzlePiece,
   FaUsers,
 } from 'react-icons/fa';
-import activitiesImage from '../../assets/images/programs.png';
+import activitiesImage from '../../assets/images/banners/programs-banner.jpg';
 import facilitiesImage from '../../assets/images/scenes/art-table-overhead.jpg';
 import './Programs.css';
 

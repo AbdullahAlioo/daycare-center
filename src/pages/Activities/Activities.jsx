@@ -10,7 +10,7 @@ import {
   FaSeedling,
   FaStar,
 } from 'react-icons/fa';
-import activitiesImage from '../../assets/images/activities.png';
+import activitiesImage from '../../assets/images/banners/activities-banner.jpg';
 import aboutImage from '../../assets/images/scenes/boys-drawing-cards.jpg';
 import './Activities.css';
 

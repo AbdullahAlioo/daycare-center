@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCalendarAlt, FaCheck, FaFileAlt, FaHeart, FaPhone } from 'react-icons/fa';
 import { supabase, isSupabaseConfigured } from '../../lib/supabase';
-import admissionsImage from '../../assets/images/safety&trust.png';
+import admissionsImage from '../../assets/images/banners/admissions-banner.jpg';
 import './Admissions.css';
 
 const STEPS = [
