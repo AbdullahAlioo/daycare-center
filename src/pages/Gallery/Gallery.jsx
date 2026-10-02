@@ -11,7 +11,6 @@ import eidImage from '../../assets/images/Joyful Eid Celebration with Children a
 import artTableImage from '../../assets/images/scenes/art-table-overhead.jpg';
 import drawingCardsImage from '../../assets/images/scenes/boys-drawing-cards.jpg';
 import guidedPaintingImage from '../../assets/images/scenes/caregiver-guided-painting.jpg';
-import craftTableImage from '../../assets/images/scenes/girl-craft-table.jpg';
 import cardsFlatlayImage from '../../assets/images/scenes/mothers-day-cards-flatlay.jpg';
 import puppetsImage from '../../assets/images/scenes/boys-balloons-puppets.jpg';
 import brothersCardImage from '../../assets/images/scenes/mothers-day-brothers-card.jpg';
@@ -42,7 +41,6 @@ const GALLERY_ITEMS = [
   { image: cardsFlatlayImage, title: 'Fingerprint hearts', category: 'Activities', description: 'A table full of finished Mother’s Day cards.' },
   { image: independenceDayImage, title: 'Independence Day', category: 'Events', description: 'Celebrating 14 August in green and white.' },
   { image: redTeesImage, title: 'Best buddies', category: 'Development', description: 'Friendships that grow every single day.' },
-  { image: craftTableImage, title: 'Little artists', category: 'Activities', description: 'Trying out paints and making something new.' },
   { image: fathersDayImage, title: 'Father’s Day cards', category: 'Development', description: 'A handmade tie card made just for Dad.' },
   { image: birthdayGirlImage, title: 'Birthday girl', category: 'Events', description: 'Tiaras, balloons, and a special day with friends.' },
   { image: babyCardImage, title: 'Our youngest artists', category: 'Development', description: 'Even the littlest ones get to make something special.' },
