@@ -4,8 +4,13 @@ import {
   FaBookOpen,
   FaCheck,
   FaChild,
+  FaComments,
+  FaHandHoldingHeart,
+  FaHandPaper,
   FaHeart,
+  FaInfoCircle,
   FaLeaf,
+  FaMusic,
   FaUsers,
 } from 'react-icons/fa';
 import aboutImage from '../../assets/images/banners/about-banner.jpg';
@@ -18,6 +23,14 @@ const VALUES = [
   { icon: FaUsers, title: 'Social growth', text: 'Positive interactions help children build meaningful relationships.' },
   { icon: FaChild, title: 'Physical & cognitive growth', text: 'Age-appropriate play and learning give children room to move, explore, and develop.' },
   { icon: FaLeaf, title: 'Spiritual growth', text: 'Timeless Islamic values guide moral nurturing and compassionate care.' },
+];
+
+const COMMUNICATION = [
+  { icon: FaComments, title: 'Talking and listening', text: 'Engaging children in simple conversations, naming familiar objects and giving them time to respond.' },
+  { icon: FaMusic, title: 'Stories, songs and rhymes', text: 'Creating enjoyable opportunities to hear words, explore sounds and join in at their own pace.' },
+  { icon: FaUsers, title: 'Interaction with other children', text: 'Encouraging shared play, turn-taking and communication with children in their age group.' },
+  { icon: FaHandPaper, title: 'Expressing everyday needs', text: 'Creating opportunities for children to make choices, ask for help and communicate their feelings during meals, play and other daily routines.' },
+  { icon: FaHeart, title: 'Patient encouragement', text: 'Responding warmly to each child’s attempts to communicate, whether through words, sounds, gestures or expressions, without pressure or comparison.' },
 ];
 
 const About = () => (
@@ -66,6 +79,26 @@ const About = () => (
       <div className="container">
         <div className="about-heading"><p className="about-kicker">Our approach</p><h2>Grow through play. <em>Develop at their own pace.</em></h2><p>We create an environment where children explore with confidence, build positive relationships, express themselves, and develop at their own pace. Safety, cleanliness, responsive caregiving, meaningful developmental activities, and strong communication with families remain at the heart of our approach.</p></div>
         <div className="about-values__grid">{VALUES.map(({ icon: Icon, title, text }) => <article key={title}><span className="about-value-icon"><Icon /></span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </div>
+    </section>
+
+    <section className="about-communication about-section">
+      <div className="container">
+        <div className="about-communication__grid">
+          <div className="about-communication__intro">
+            <p className="about-kicker">Communication & social growth</p>
+            <h2>Helping little voices <em>grow.</em></h2>
+            <p>At Angels & Fairies Daycare Centre, we place special emphasis on encouraging speech, communication and social interaction through everyday childcare. For children experiencing speech or communication delays, we offer a patient, welcoming environment where they have opportunities to express themselves and connect with others.</p>
+            <h3>Everyday moments, meaningful communication</h3>
+            <p>We make communication part of the day through conversation, play and shared routines.</p>
+            <p className="about-communication__focus">Our focus is on helping children feel heard, included and comfortable communicating. We value parents’ understanding of their child and recognise that each child’s needs and pace are different.</p>
+          </div>
+          <ul className="about-communication__list">{COMMUNICATION.map(({ icon: Icon, title, text }) => <li key={title}><span className="about-value-icon"><Icon /></span><div><h4>{title}</h4><p>{text}</p></div></li>)}</ul>
+        </div>
+        <div className="about-communication__notes">
+          <article className="about-communication__card"><span className="about-value-icon"><FaHandHoldingHeart /></span><div><h3>Understanding every child</h3><p>Our caring approach also extends to children with ADHD or OCD. We focus on their individual strengths, comfort and everyday needs, offering patience, reassurance and opportunities to participate alongside others.</p></div></article>
+          <article className="about-communication__card about-communication__card--note"><span className="about-value-icon"><FaInfoCircle /></span><div><h3>About our service</h3><p>Our service is daycare, with a particular focus on communication and social interaction. This support takes place naturally throughout the day; we do not provide clinical assessments, therapy sessions or medical treatment.</p></div></article>
+        </div>
       </div>
     </section>
 
