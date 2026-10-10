@@ -24,6 +24,7 @@ import FAQ        from './pages/FAQ/FAQ';
 import Contact    from './pages/Contact/Contact';
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminDashboard from './pages/Admin/AdminDashboard';
+import AdminResetPassword from './pages/Admin/AdminResetPassword';
 import ProtectedRoute from './pages/Admin/ProtectedRoute';
 
 function AppContent() {
@@ -53,6 +54,7 @@ function AppContent() {
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/reset-password" element={<AdminResetPassword />} />
           <Route element={<ProtectedRoute />}>
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />

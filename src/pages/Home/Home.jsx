@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaArrowRight,
@@ -15,6 +15,8 @@ import activitiesImage from '../../assets/images/scenes/art-table-overhead.jpg';
 import facilitiesImage from '../../assets/images/scenes/caregiver-guided-painting.jpg';
 import programsImage from '../../assets/images/scenes/three-boys-red-tees.jpg';
 import VideoMoments from '../../components/common/VideoMoments/VideoMoments';
+import ReviewForm from '../../components/common/ReviewForm/ReviewForm';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 import momentsImage from '../../assets/images/scenes/group-birthday-party.jpg';
 import './Home.css';
 
@@ -24,13 +26,45 @@ const PROGRAMS = [
   { age: '2-4 years', title: 'Developmental Play', text: 'Play-based activities build confidence, communication, cognitive skills, and fine-motor coordination.', tone: 'gold' },
 ];
 
+// Shown until approved parent reviews exist in the database
 const TESTIMONIALS = [
-  { quote: 'The team made our daughter feel at home from her very first morning. We see her confidence growing every week.', name: 'Ayesha R.', detail: 'Parent of a 3-year-old' },
-  { quote: 'We love the thoughtful routines, regular updates, and the genuine care every caregiver shows the children.', name: 'Hassan M.', detail: 'Parent of a toddler' },
+  { id: 'ayesha', quote: 'The team made our daughter feel at home from her very first morning. We see her confidence growing every week.', name: 'Ayesha R.', detail: 'Parent of a 3-year-old', rating: 5 },
+  { id: 'hassan', quote: 'We love the thoughtful routines, regular updates, and the genuine care every caregiver shows the children.', name: 'Hassan M.', detail: 'Parent of a toddler', rating: 5 },
 ];
 
 const Home = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [testimonials, setTestimonials] = useState(TESTIMONIALS);
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  // Only offer the review form once the reviews table is reachable
+  const [reviewsEnabled, setReviewsEnabled] = useState(false);
+
+  useEffect(() => {
+    if (!isSupabaseConfigured || !supabase) return;
+
+    supabase
+      .from('reviews')
+      .select('id, parent_name, relation, rating, message')
+      .eq('status', 'Approved')
+      .order('created_at', { ascending: false })
+      .limit(6)
+      .then(({ data, error }) => {
+        if (error) {
+          console.error('Error loading reviews:', error);
+          return;
+        }
+        setReviewsEnabled(true);
+        if (data?.length) {
+          setTestimonials(data.map((review) => ({
+            id: review.id,
+            quote: review.message,
+            name: review.parent_name,
+            detail: review.relation || 'Parent',
+            rating: review.rating,
+          })));
+        }
+      });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -115,7 +149,7 @@ const Home = () => {
 
       <VideoMoments />
 
-      <section className="home-section home-testimonials"><div className="container"><div className="home-section-heading"><div><p className="home-kicker">Kind words from families</p><h2>What parents <em>feel.</em></h2></div></div><div className="home-testimonial-grid">{TESTIMONIALS.map((item) => <figure className="home-testimonial" key={item.name}><div className="home-stars" aria-label="5 out of 5 stars"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></div><blockquote>“{item.quote}”</blockquote><figcaption><strong>{item.name}</strong><span>{item.detail}</span></figcaption></figure>)}</div></div></section>
+      <section className="home-section home-testimonials" id="reviews"><div className="container"><div className="home-section-heading"><div><p className="home-kicker">Kind words from families</p><h2>What parents <em>feel.</em></h2></div>{reviewsEnabled && <button type="button" className="home-button home-button--outline" onClick={() => setShowReviewForm((open) => !open)} aria-expanded={showReviewForm}>{showReviewForm ? 'Close review form' : <>Write a review <FaStar /></>}</button>}</div><div className="home-testimonial-grid">{testimonials.map((item) => <figure className="home-testimonial" key={item.id}><div className="home-stars" aria-label={`${item.rating} out of 5 stars`}>{Array.from({ length: 5 }, (_, i) => <FaStar key={i} className={i < item.rating ? '' : 'home-star--empty'} />)}</div><blockquote>“{item.quote}”</blockquote><figcaption><strong>{item.name}</strong><span>{item.detail}</span></figcaption></figure>)}</div>{showReviewForm && <ReviewForm />}</div></section>
 
       <section className="home-inquiry" id="visit"><div className="container home-inquiry__grid"><div className="home-inquiry__intro"><p className="home-kicker">Let’s get to know each other</p><h2>Come see where your child will <em>belong.</em></h2><p>Tell us a little about your family and our admissions team will get back to you to arrange a visit.</p><div className="home-inquiry__contact"><span>Prefer to talk?</span><a href="tel:+923339638654">0333 9638654</a></div></div><form className="home-inquiry__form" onSubmit={handleSubmit}>{submitted ? <div className="home-form-success"><FaCheck /><h3>Thank you for reaching out.</h3><p>Our team will contact you shortly to arrange your visit.</p><button type="button" className="home-button home-button--outline" onClick={() => setSubmitted(false)}>Send another inquiry</button></div> : <><div className="home-form-row"><label>Parent name<input required name="parentName" placeholder="Your name" /></label><label>Phone number<input required name="phone" type="tel" placeholder="+92 300 1234567" /></label></div><label>Email address<input required name="email" type="email" placeholder="you@example.com" /></label><label>How can we help?<textarea required name="message" rows="3" placeholder="Tell us about your child or ask a question..." /></label><button type="submit" className="home-button home-button--primary">Send an inquiry <FaArrowRight /></button></>}</form></div></section>
     </div>

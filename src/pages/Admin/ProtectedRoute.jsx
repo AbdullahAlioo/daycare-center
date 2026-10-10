@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 
 const ProtectedRoute = () => {
   const [loading, setLoading] = useState(true);
   const [session, setSession] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase) {
@@ -44,7 +45,8 @@ const ProtectedRoute = () => {
   }
 
   if (!session) {
-    return <Navigate to="/admin/login" replace />;
+    // Remember where the admin was going (e.g. /admin?tab=reviews from the email link)
+    return <Navigate to="/admin/login" replace state={{ from: location.pathname + location.search }} />;
   }
 
   return <Outlet />;

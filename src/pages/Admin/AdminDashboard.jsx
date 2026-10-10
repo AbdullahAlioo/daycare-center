@@ -1,7 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { 
-  FaSignOutAlt, 
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import {
+  FaSignOutAlt,
+  FaKey,
+  FaStar,
+  FaCheck,
+  FaTimes,
   FaSync, 
   FaDownload, 
   FaSearch, 
@@ -17,10 +21,22 @@ import {
 import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 import './AdminDashboard.css';
 
+const TABS = ['inquiries', 'admissions', 'reviews'];
+
+const STATUS_OPTIONS = {
+  inquiries: ['New', 'Contacted', 'Resolved'],
+  admissions: ['Pending', 'Contacted', 'Enrolled', 'Declined'],
+  reviews: ['Pending', 'Approved', 'Rejected'],
+};
+
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('inquiries'); // 'inquiries' | 'admissions'
+  const [searchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState(() => (
+    TABS.includes(searchParams.get('tab')) ? searchParams.get('tab') : 'inquiries'
+  ));
   const [inquiries, setInquiries] = useState([]);
   const [admissions, setAdmissions] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('ALL');
@@ -59,6 +75,15 @@ const AdminDashboard = () => {
 
       if (admError) throw admError;
       setAdmissions(admData || []);
+
+      // Fetch Reviews
+      const { data: revData, error: revError } = await supabase
+        .from('reviews')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (revError) throw revError;
+      setReviews(revData || []);
     } catch (err) {
       console.error('Error loading dashboard data:', err);
     } finally {
@@ -78,6 +103,8 @@ const AdminDashboard = () => {
     navigate('/admin/login');
   };
 
+  const setters = { inquiries: setInquiries, admissions: setAdmissions, reviews: setReviews };
+
   // Update Status
   const handleStatusChange = async (table, id, newStatus) => {
     if (!supabase) return;
@@ -90,11 +117,7 @@ const AdminDashboard = () => {
 
       if (error) throw error;
 
-      if (table === 'inquiries') {
-        setInquiries(prev => prev.map(item => item.id === id ? { ...item, status: newStatus } : item));
-      } else {
-        setAdmissions(prev => prev.map(item => item.id === id ? { ...item, status: newStatus } : item));
-      }
+      setters[table](prev => prev.map(item => item.id === id ? { ...item, status: newStatus } : item));
     } catch (err) {
       alert('Failed to update status: ' + err.message);
     } finally {
@@ -118,11 +141,7 @@ const AdminDashboard = () => {
 
       if (error) throw error;
 
-      if (table === 'inquiries') {
-        setInquiries(prev => prev.filter(item => item.id !== id));
-      } else {
-        setAdmissions(prev => prev.filter(item => item.id !== id));
-      }
+      setters[table](prev => prev.filter(item => item.id !== id));
     } catch (err) {
       alert('Failed to delete record: ' + err.message);
     } finally {
@@ -132,7 +151,11 @@ const AdminDashboard = () => {
 
   // Export to CSV
   const exportToCSV = () => {
-    const dataToExport = activeTab === 'inquiries' ? filteredInquiries : filteredAdmissions;
+    const dataToExport = {
+      inquiries: filteredInquiries,
+      admissions: filteredAdmissions,
+      reviews: filteredReviews,
+    }[activeTab];
     if (!dataToExport.length) {
       alert('No data available to export.');
       return;
@@ -163,6 +186,7 @@ const AdminDashboard = () => {
   // Calculations
   const newInquiriesCount = inquiries.filter(i => i.status === 'New' || i.status === 'Pending').length;
   const newAdmissionsCount = admissions.filter(a => a.status === 'Pending').length;
+  const pendingReviewsCount = reviews.filter(r => r.status === 'Pending').length;
 
   // Filter inquiries
   const filteredInquiries = inquiries.filter(item => {
@@ -184,6 +208,18 @@ const AdminDashboard = () => {
       (item.email && item.email.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (item.phone && item.phone.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (item.program && item.program.toLowerCase().includes(searchTerm.toLowerCase()));
+
+    const matchesStatus = statusFilter === 'ALL' || item.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
+
+  // Filter reviews
+  const filteredReviews = reviews.filter(item => {
+    const matchesSearch =
+      (item.parent_name && item.parent_name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.email && item.email.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.relation && item.relation.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.message && item.message.toLowerCase().includes(searchTerm.toLowerCase()));
 
     const matchesStatus = statusFilter === 'ALL' || item.status === statusFilter;
     return matchesSearch && matchesStatus;
@@ -216,6 +252,9 @@ const AdminDashboard = () => {
           </div>
           <div className="admin-user-controls">
             <span className="admin-logged-user">{userEmail || 'Admin User'}</span>
+            <button className="admin-password-btn" onClick={() => navigate('/admin/reset-password')}>
+              <FaKey /> Change Password
+            </button>
             <button className="admin-signout-btn" onClick={handleSignOut}>
               <FaSignOutAlt /> Sign Out
             </button>
@@ -262,6 +301,21 @@ const AdminDashboard = () => {
               <span className="stat-subtext">Processed applications</span>
             </div>
           </div>
+
+          <div className="admin-stat-card">
+            <div className="admin-stat-icon rev-icon">
+              <FaStar />
+            </div>
+            <div>
+              <h3>{reviews.length}</h3>
+              <p>Parent Reviews</p>
+              {pendingReviewsCount > 0 ? (
+                <span className="stat-subtext highlight">{pendingReviewsCount} awaiting approval</span>
+              ) : (
+                <span className="stat-subtext">{reviews.filter(r => r.status === 'Approved').length} shown on website</span>
+              )}
+            </div>
+          </div>
         </section>
 
         {/* Tab & Filter Bar */}
@@ -278,6 +332,13 @@ const AdminDashboard = () => {
               onClick={() => { setActiveTab('admissions'); setStatusFilter('ALL'); }}
             >
               <FaUserGraduate /> Enrollments & Admissions ({admissions.length})
+            </button>
+            <button
+              className={`admin-tab-btn ${activeTab === 'reviews' ? 'active' : ''}`}
+              onClick={() => { setActiveTab('reviews'); setStatusFilter('ALL'); }}
+            >
+              <FaStar /> Parent Reviews ({reviews.length})
+              {pendingReviewsCount > 0 && <span className="admin-tab-count">{pendingReviewsCount} new</span>}
             </button>
           </div>
 
@@ -298,20 +359,9 @@ const AdminDashboard = () => {
               className="admin-select-filter"
             >
               <option value="ALL">All Statuses</option>
-              {activeTab === 'inquiries' ? (
-                <>
-                  <option value="New">New</option>
-                  <option value="Contacted">Contacted</option>
-                  <option value="Resolved">Resolved</option>
-                </>
-              ) : (
-                <>
-                  <option value="Pending">Pending</option>
-                  <option value="Contacted">Contacted</option>
-                  <option value="Enrolled">Enrolled</option>
-                  <option value="Declined">Declined</option>
-                </>
-              )}
+              {STATUS_OPTIONS[activeTab].map(status => (
+                <option key={status} value={status}>{status}</option>
+              ))}
             </select>
 
             <button className="admin-action-btn" onClick={fetchData} title="Refresh records">
@@ -330,6 +380,91 @@ const AdminDashboard = () => {
             <div className="admin-table-loader">
               <FaSync className="spin" /> Loading records from database...
             </div>
+          ) : activeTab === 'reviews' ? (
+            /* Reviews Table */
+            filteredReviews.length === 0 ? (
+              <div className="admin-empty-state">
+                <FaStar />
+                <h4>No reviews found</h4>
+                <p>When parents submit a review on the website, it will appear here for approval.</p>
+              </div>
+            ) : (
+              <div className="admin-table-wrapper">
+                <table className="admin-data-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Parent</th>
+                      <th>Rating</th>
+                      <th>Review</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredReviews.map((rev) => (
+                      <tr key={rev.id}>
+                        <td className="cell-date">{formatDate(rev.created_at)}</td>
+                        <td>
+                          <strong>{rev.parent_name}</strong>
+                          <div className="contact-sublines">
+                            {rev.relation && <span>{rev.relation}</span>}
+                            <span><FaEnvelope /> <a href={`mailto:${rev.email}`}>{rev.email}</a></span>
+                          </div>
+                        </td>
+                        <td>
+                          <span className="review-stars" aria-label={`${rev.rating} out of 5 stars`}>
+                            {Array.from({ length: 5 }, (_, i) => (
+                              <FaStar key={i} className={i < rev.rating ? 'filled' : ''} />
+                            ))}
+                          </span>
+                        </td>
+                        <td className="cell-review">
+                          <p>{rev.message}</p>
+                        </td>
+                        <td>
+                          <span className={`status-pill status-${(rev.status || 'pending').toLowerCase()}`}>
+                            {rev.status || 'Pending'}
+                          </span>
+                        </td>
+                        <td>
+                          <div className="review-actions">
+                            {rev.status !== 'Approved' && (
+                              <button
+                                className="review-btn approve"
+                                title="Show this review on the website"
+                                onClick={() => handleStatusChange('reviews', rev.id, 'Approved')}
+                                disabled={actionLoading === rev.id}
+                              >
+                                <FaCheck /> Approve
+                              </button>
+                            )}
+                            {rev.status !== 'Rejected' && (
+                              <button
+                                className="review-btn reject"
+                                title="Hide this review from the website"
+                                onClick={() => handleStatusChange('reviews', rev.id, 'Rejected')}
+                                disabled={actionLoading === rev.id}
+                              >
+                                <FaTimes /> Reject
+                              </button>
+                            )}
+                            <button
+                              className="delete-row-btn"
+                              title="Delete review"
+                              onClick={() => handleDelete('reviews', rev.id)}
+                              disabled={actionLoading === rev.id}
+                            >
+                              <FaTrash />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
           ) : activeTab === 'inquiries' ? (
             /* Inquiries Table */
             filteredInquiries.length === 0 ? (

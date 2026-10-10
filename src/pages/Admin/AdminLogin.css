@@ -150,3 +150,41 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.admin-success-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.admin-link-btn {
+  align-self: center;
+  background: none;
+  border: none;
+  color: #2b7a4b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.admin-link-btn:hover {
+  text-decoration: underline;
+}
+
+.admin-login-btn--link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.admin-muted-text {
+  text-align: center;
+  color: #6b7280;
+}
