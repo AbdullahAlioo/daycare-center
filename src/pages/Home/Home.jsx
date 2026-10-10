@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaArrowRight,
@@ -38,6 +38,8 @@ const Home = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
   // Only offer the review form once the reviews table is reachable
   const [reviewsEnabled, setReviewsEnabled] = useState(false);
+  const [inquiryLoading, setInquiryLoading] = useState(false);
+  const [inquiryError, setInquiryError] = useState('');
 
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase) return;
@@ -66,9 +68,35 @@ const Home = () => {
       });
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    setInquiryLoading(true);
+    setInquiryError('');
+
+    const formData = {
+      name: document.getElementById('parentName')?.value || '',
+      phone: document.getElementById('phone')?.value || '',
+      email: document.getElementById('email')?.value || '',
+      topic: 'visit',
+      message: document.getElementById('message')?.value || '',
+      status: 'New'
+    };
+
+    try {
+      if (isSupabaseConfigured && supabase) {
+        const { error } = await supabase.from('inquiries').insert([formData]);
+        if (error) throw error;
+      } else {
+        throw new Error('Supabase is not configured yet. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.');
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Inquiry submission error:', error);
+      setInquiryError('Failed to send inquiry. Please check your connection or contact us directly.');
+    } finally {
+      setInquiryLoading(false);
+    }
   };
 
   return (
@@ -116,7 +144,7 @@ const Home = () => {
           <div className="home-copy">
             <p className="home-kicker">Welcome to Angels & Fairies</p>
             <h2>A happy beginning for every little <em>journey.</em></h2>
-            <p>We believe childhood should feel unhurried, joyful, and full of wonder. Our days balance caring routines with open-ended play, creative exploration, and the simple comfort of familiar faces.</p>
+            <p>We believe childhood should feel unhurried, joyful, and full of wonder. Our days balance caring routines with open-ended play, creative exploration, and the simple comfort of family.</p>
             <ul className="home-check-list">
               <li><FaCheck /> Small-group attention</li>
               <li><FaCheck /> Age-appropriate developmental play</li>
@@ -129,17 +157,17 @@ const Home = () => {
 
       <section className="home-section home-programs">
         <div className="container">
-          <div className="home-section-heading"><div><p className="home-kicker">Growing at their own pace</p><h2>Programs made for <em>little learners.</em></h2></div><Link to="/programs" className="home-text-link">View all programs <FaArrowRight /></Link></div>
+          <div className="home-section-heading"><div><p className="home-kicker">Growing at their own pace</p><h2>Programs made for <em>little learners.</em></h2></div><Link to="/programs" className="home-text-link">See all programs <FaArrowRight /></Link></div>
           <div className="home-program-grid">
-            {PROGRAMS.map((program) => <article className={`home-program-card home-program-card--${program.tone}`} key={program.title}><span className="home-program-card__age">{program.age}</span><h3>{program.title}</h3><p>{program.text}</p><Link to="/programs" aria-label={`Learn more about ${program.title}`}><FaChevronRight /></Link></article>)}
+            {PROGRAMS.map((program) => <article className={`home-program-card home-program-card--${program.tone}`} key={program.title}><span className="home-program-card__age">{program.age}</span><h3>{program.title}</h3><p>{program.text}</p></article>)}
           </div>
         </div>
       </section>
 
       <section className="home-section home-safety">
         <div className="container home-safety__grid">
-          <div className="home-copy"><p className="home-kicker">More than childcare</p><h2>The little details make a <em>big difference.</em></h2><p>From the first hello in the morning to the final story before home time, our team creates a dependable rhythm where children can feel secure and parents can feel confident.</p><div className="home-safety__list"><span><FaShieldAlt /> Secure premises</span><span><FaHeart /> Caring supervision</span><span><FaCheck /> Clean, bright spaces</span><span><FaStar /> Joyful daily activities</span></div><Link to="/facilities" className="home-button home-button--outline">See our facilities <FaArrowRight /></Link></div>
-          <div className="home-safety__visual"><img src={facilitiesImage} alt="A caregiver guiding a toddler through fingerprint painting" /><div className="home-safety__badge"><FaShieldAlt /><strong>Safety first</strong><span>Every day, every child</span></div></div>
+          <div className="home-copy"><p className="home-kicker">More than childcare</p><h2>The little details make a <em>big difference.</em></h2><p>From the first hello in the morning to the final goodbye, we prioritize every child's wellbeing, development, and sense of belonging.</p><ul className="home-check-list"><li><FaCheck /> Trained in pediatric first aid and CPR</li><li><FaCheck /> Clean, secure, and age-appropriate spaces</li><li><FaCheck /> Open communication with parents</li></ul><Link to="/about" className="home-text-link">Learn more about our approach <FaArrowRight /></Link></div>
+          <div className="home-safety__visual"><img src={facilitiesImage} alt="A caregiver guiding a toddler through fingerprint painting" /><div className="home-safety__badge"><FaShieldAlt /><span>Secure &amp; Safe</span></div></div>
         </div>
       </section>
 
@@ -149,9 +177,62 @@ const Home = () => {
 
       <VideoMoments />
 
-      <section className="home-section home-testimonials" id="reviews"><div className="container"><div className="home-section-heading"><div><p className="home-kicker">Kind words from families</p><h2>What parents <em>feel.</em></h2></div>{reviewsEnabled && <button type="button" className="home-button home-button--outline" onClick={() => setShowReviewForm((open) => !open)} aria-expanded={showReviewForm}>{showReviewForm ? 'Close review form' : <>Write a review <FaStar /></>}</button>}</div><div className="home-testimonial-grid">{testimonials.map((item) => <figure className="home-testimonial" key={item.id}><div className="home-stars" aria-label={`${item.rating} out of 5 stars`}>{Array.from({ length: 5 }, (_, i) => <FaStar key={i} className={i < item.rating ? '' : 'home-star--empty'} />)}</div><blockquote>“{item.quote}”</blockquote><figcaption><strong>{item.name}</strong><span>{item.detail}</span></figcaption></figure>)}</div>{showReviewForm && <ReviewForm />}</div></section>
+      <section className="home-section home-testimonials" id="reviews"><div className="container"><div className="home-section-heading"><div><p className="home-kicker">Kind words from families</p><h2>What parents <em>feel.</em></h2></div>{reviewsEnabled && <button type="button" className="home-button home-button--outline" onClick={() => setShowReviewForm((open) => !open)} aria-expanded={showReviewForm}>{showReviewForm ? 'Close review form' : <>Write a review <FaStar /></>}</button>}</div><div className="home-testimonial-grid">{testimonials.map((item) => <figure className="home-testimonial" key={item.id}><div className="home-stars" aria-label={`${item.rating} out of 5 stars`}>{Array.from({ length: 5 }, (_, i) => <FaStar key={i} className={i < item.rating ? '' : 'home-star--empty'} />)}</div><blockquote>"{item.quote}"</blockquote><figcaption><strong>{item.name}</strong><span>{item.detail}</span></figcaption></figure>)}</div>{showReviewForm && <ReviewForm />}</div></section>
 
-      <section className="home-inquiry" id="visit"><div className="container home-inquiry__grid"><div className="home-inquiry__intro"><p className="home-kicker">Let’s get to know each other</p><h2>Come see where your child will <em>belong.</em></h2><p>Tell us a little about your family and our admissions team will get back to you to arrange a visit.</p><div className="home-inquiry__contact"><span>Prefer to talk?</span><a href="tel:+923339638654">0333 9638654</a></div></div><form className="home-inquiry__form" onSubmit={handleSubmit}>{submitted ? <div className="home-form-success"><FaCheck /><h3>Thank you for reaching out.</h3><p>Our team will contact you shortly to arrange your visit.</p><button type="button" className="home-button home-button--outline" onClick={() => setSubmitted(false)}>Send another inquiry</button></div> : <><div className="home-form-row"><label>Parent name<input required name="parentName" placeholder="Your name" /></label><label>Phone number<input required name="phone" type="tel" placeholder="+92 300 1234567" /></label></div><label>Email address<input required name="email" type="email" placeholder="you@example.com" /></label><label>How can we help?<textarea required name="message" rows="3" placeholder="Tell us about your child or ask a question..." /></label><button type="submit" className="home-button home-button--primary">Send an inquiry <FaArrowRight /></button></>}</form></div></section>
+      <section className="home-inquiry" id="visit">
+        <div className="container home-inquiry__grid">
+          <div className="home-inquiry__intro">
+            <p className="home-kicker">Let's get to know each other</p>
+            <h2>Come see where your child will <em>belong.</em></h2>
+            <p>Tell us a little about your family and our admissions team will get back to you to arrange a visit.</p>
+            <div className="home-inquiry__contact">
+              <span>Prefer to talk?</span>
+              <a href="tel:+923339638654">0333 9638654</a>
+            </div>
+          </div>
+          <form className="home-inquiry__form" onSubmit={handleSubmit}>
+            {submitted ? (
+              <div className="home-form-success">
+                <FaCheck />
+                <h3>Thank you for reaching out.</h3>
+                <p>Our team will contact you shortly to arrange your visit.</p>
+                <button type="button" className="home-button home-button--outline" onClick={() => setSubmitted(false)}>
+                  Send another inquiry
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="home-form-row">
+                  <label>
+                    Parent name
+                    <input required id="parentName" name="parentName" placeholder="Your name" />
+                  </label>
+                  <label>
+                    Phone number
+                    <input required id="phone" name="phone" type="tel" placeholder="+92 300 1234567" />
+                  </label>
+                </div>
+                <label>
+                  Email address
+                  <input required id="email" name="email" type="email" placeholder="you@example.com" />
+                </label>
+                <label>
+                  How can we help?
+                  <textarea required id="message" name="message" rows="3" placeholder="Tell us about your child or ask a question..." />
+                </label>
+                {inquiryError && (
+                  <p style={{ color: '#dc2626', fontSize: '0.9rem', margin: '0.5rem 0' }}>
+                    {inquiryError}
+                  </p>
+                )}
+                <button type="submit" className="home-button home-button--primary" disabled={inquiryLoading}>
+                  {inquiryLoading ? 'Sending...' : <>Send an inquiry <FaArrowRight /></>}
+                </button>
+              </>
+            )}
+          </form>
+        </div>
+      </section>
     </div>
   );
 };
