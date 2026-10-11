@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FaCheck, FaPaperPlane, FaStar } from 'react-icons/fa';
 import { supabase, isSupabaseConfigured } from '../../../lib/supabase';
 import './ReviewForm.css';
@@ -13,6 +13,16 @@ const ReviewForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const formRef = useRef(null);
+
+  // Bring the form into view when it opens, so parents can see where it appeared
+  useEffect(() => {
+    const formEl = formRef.current;
+    if (!formEl) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    formEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    formEl.querySelector('input[name="parent_name"]')?.focus({ preventScroll: true });
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -76,7 +86,7 @@ const ReviewForm = () => {
   const shownRating = hoverRating || rating;
 
   return (
-    <form className="review-form" onSubmit={handleSubmit}>
+    <form className="review-form" onSubmit={handleSubmit} ref={formRef}>
       <div className="review-form__heading">
         <h3>Share your experience</h3>
         <p>Reviews are checked by our team before they appear on the website. Your email is never shown publicly.</p>
