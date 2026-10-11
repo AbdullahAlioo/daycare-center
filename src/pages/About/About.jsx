@@ -91,7 +91,7 @@ const About = () => (
             <p>At Angels & Fairies Daycare Centre, we place special emphasis on encouraging speech, communication and social interaction through everyday childcare. For children experiencing speech or communication delays, we offer a patient, welcoming environment where they have opportunities to express themselves and connect with others.</p>
             <h3>Everyday moments, meaningful communication</h3>
             <p>We make communication part of the day through conversation, play and shared routines.</p>
-            <p className="about-communication__focus">Our focus is on helping children feel heard, included and comfortable communicating. We value parents’ understanding of their child and recognise that each child’s needs and pace are different.</p>
+            <p className="about-communication__focus">Our focus is on helping children feel heard, welcome and comfortable communicating. We value parents’ understanding of their child and recognise that each child’s needs and pace are different.</p>
           </div>
           <ul className="about-communication__list">{COMMUNICATION.map(({ icon: Icon, title, text }) => <li key={title}><span className="about-value-icon"><Icon /></span><div><h4>{title}</h4><p>{text}</p></div></li>)}</ul>
         </div>
